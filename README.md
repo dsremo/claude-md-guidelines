@@ -1,17 +1,31 @@
 # claude-md-guidelines
 
-A crisp, modular, **general-purpose `CLAUDE.md`** you can drop into any project to make AI coding agents — Claude or any other — make fewer mistakes. It does this by being explicit about how to *think*, how to *build*, and how to *verify*, so the agent stops guessing and starts working to a standard.
+Behavioral guidelines that make AI coding agents — Claude or any other — make fewer mistakes, by being explicit about how to *think*, *build*, and *verify*. Vendor-neutral and stack-agnostic.
 
-Vendor-neutral and stack-agnostic by design. Nothing here is tied to a company, framework, or language.
+This page **is** the guidelines. To use them in your own project, copy [`CLAUDE.md`](CLAUDE.md) and the [`guides/`](guides/) folder into your project root — your agent reads them automatically. Everything below is what `CLAUDE.md` says, readable here in the browser.
 
-## What's inside
+Bias toward caution over speed — use judgment on trivial tasks.
 
-| File | What it is |
+---
+
+## The loop
+
+- **Think before coding.** Clarify requirements, identify constraints, and outline an approach before writing a line. Surface assumptions and tradeoffs; ask when uncertain.
+- **Simplicity first.** Reach for the smallest, most readable solution that solves the problem. Nothing speculative. Complexity is a cost.
+- **Surgical changes.** Edit only what the task requires. No unrelated refactors in the same diff. Every changed line traces to the request.
+- **Goal-driven execution.** Turn the ask into verifiable success criteria, then loop until they pass. Don't get lost optimizing intermediate steps.
+- **Verify.** Run tests, lint, and type-checks. Confirm the change does what it claims, on real and messy inputs.
+- **Self-review.** Read the full diff before declaring done. Catch regressions, stray debug code, and style drift.
+
+## The guides
+
+The loop in depth — three short, focused reads:
+
+| Guide | Use it for |
 |---|---|
-| [`CLAUDE.md`](CLAUDE.md) | The crisp entry point: the core operating loop + links to the guides. This is the file your agent reads. |
-| [`guides/working-principles.md`](guides/working-principles.md) | How to approach any task — think before coding, simplicity first, surgical changes, goal-driven execution. |
-| [`guides/engineering-standards.md`](guides/engineering-standards.md) | The quality bar while writing code — context-first, production engineering, naming, comments, dependency & security discipline. |
-| [`guides/review-and-verification.md`](guides/review-and-verification.md) | How to check the work before shipping — severity-ordered review, final audit, adding guards safely, verification & testing. |
+| [Working principles](guides/working-principles.md) | How to approach any task — think, simplify, stay surgical, work to verifiable goals. |
+| [Engineering standards](guides/engineering-standards.md) | The quality bar while writing code — context-first, production engineering, naming, comments, dependency & security discipline. |
+| [Review & verification](guides/review-and-verification.md) | How to check the work before shipping — severity-ordered review, final audit, adding guards safely, verification & testing. |
 
 ## How to use
 
